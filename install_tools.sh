@@ -124,7 +124,7 @@ echo "Git related extensions" | tee -a $LOGFILE
 code --install-extension donjayamanne.githistory | tee -a $LOGFILE
 code --install-extension samschneller.git-pull-upstream | tee -a $LOGFILE
 
-echo "Git related extensions" | tee -a $LOGFILE
+echo "HTML related extensions" | tee -a $LOGFILE
 code --install-extension abusaidm.html-snippets | tee -a $LOGFILE
 
 cd ~
