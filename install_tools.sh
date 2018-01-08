@@ -130,6 +130,12 @@ code --install-extension abusaidm.html-snippets | tee -a $LOGFILE
 cd ~
 
 
+## Install pylint
+echo "" | tee -a $LOGFILE
+echo "Install pylint" | tee -a $LOGFILE
+sudo python -m pip install -U pylint | tee -a $LOGFILE
+
+
 ## Install PyCharm ##
 echo "" | tee -a $LOGFILE
 echo "Install PyCharm Community Edition + ppa for it" | tee -a $LOGFILE
