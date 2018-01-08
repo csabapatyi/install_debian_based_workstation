@@ -96,7 +96,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg | tee -a $LOGFILE
 sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' | tee -a $LOGFILE
 sudo apt-get update
-sudo apt-get install code
+sudo apt-get install -y code
 
 echo "" | tee -a $LOGFILE
 echo "Install Visual Studio Code extensions" | tee -a $LOGFILE
@@ -142,7 +142,7 @@ cd ~
 
 
 ## Install python-pip and restviewer
-echo "" | tess $LOGFILE
+echo "" | tee $LOGFILE
 echo "Install pip and rstviewer" | tee -a $LOGFILE
 sudo apt install -y python-pip | tee -a $LOGFILE
 pip install --upgrade pip | tee -a $LOGFILE
