@@ -29,14 +29,14 @@ echo "Installing additional GUI accessories"  | tee -a $LOGFILE
 sudo apt install -y terminator guake guake-indicator keepass2  | tee -a $LOGFILE
 
 
-## Install PACManager
+## Install 
+
+SSH Manager Ásbrú (PAC Manager fork)
 echo "" | tee -a $LOGFILE
-echo "Install PACManager" | tee -a $LOGFILE
+echo "Install Ásbrú" | tee -a $LOGFILE
 cd /tmp/
-wget http://downloads.sourceforge.net/project/pacmanager/pac-4.0/pac-4.5.5.7-all.deb  | tee -a $LOGFILE
-sudo dpkg -i pac-4.5.5.7-all.deb  | tee -a $LOGFILE
-sudo apt install -f -y  | tee -a $LOGFILE
-sudo dpkg -i pac-4.5.5.7-all.deb  | tee -a $LOGFILE
+curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash | tee -a $LOGFILE
+sudo apt install asbru-cm  | tee -a $LOGFILE
 cd ~
 
 
