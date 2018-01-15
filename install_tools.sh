@@ -195,6 +195,10 @@ sudo usermod -aG docker $(whoami)
 cd ~
 
 
+## Install AWS CLI
+echo "" | tee -a $LOGFILE
+echo "Install AWS CLI" | tee -a $LOGFILE
+sudo apt install -y awscli | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -227,3 +231,4 @@ echo "alias svim='sudo vim'" >> ~/.bashrc
 echo "alias supd='sudo apt update'" >> ~/.bashrc
 echo "alias supl='sudo apt list --upgradeable'" >> ~/.bashrc
 echo "alias supg='sudo apt full-upgrade -y'" >> ~/.bashrc
+complete -C '`which aws_completer`' aws
