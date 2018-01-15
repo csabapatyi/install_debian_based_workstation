@@ -29,14 +29,12 @@ echo "Installing additional GUI accessories"  | tee -a $LOGFILE
 sudo apt install -y terminator guake guake-indicator keepass2  | tee -a $LOGFILE
 
 
-## Install 
-
-SSH Manager Ásbrú (PAC Manager fork)
+## Install SSH Manager Ásbrú (PAC Manager fork)
 echo "" | tee -a $LOGFILE
 echo "Install Ásbrú" | tee -a $LOGFILE
 cd /tmp/
 curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash | tee -a $LOGFILE
-sudo apt install asbru-cm  | tee -a $LOGFILE
+sudo apt install -y asbru-cm  | tee -a $LOGFILE
 cd ~
 
 
