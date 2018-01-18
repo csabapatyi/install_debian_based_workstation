@@ -15,7 +15,7 @@ Shell script to install my favorite utilities for work in Debian based Desktop m
   * guake
   * guake-indicator
   * keepass2
-  * PACManager
+  * Ásbrú (PACManager fork, ssh session manager)
   * muCommander
 
 
