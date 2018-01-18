@@ -218,15 +218,17 @@ echo "" | tee -a $LOGFILE
 echo "" | tee -a $LOGFILE
 #### Put some stuff to the ~/.bashrc ####
 echo "#########################################################################" | tee -a $LOGFILE
-echo "Put some stuff to the ~/.profile" | tee -a $LOGFILE
+echo "Put some stuff to the ~/.bashrc" | tee -a $LOGFILE
 
-echo "" >> ~/.profile
-echo "" >> ~/.profile
-echo "" >> ~/.profile
-echo "## Added after OS install with script ##" >> ~/.profile
+echo "" >> ~/.bashrc
+echo "" >> ~/.bashrc
+echo "" >> ~/.bashrc
+echo "## Added after OS install with script ##" >> ~/.bashrc
 
 echo "alias svim='sudo vim'" >> ~/.bashrc
 echo "alias supd='sudo apt update'" >> ~/.bashrc
 echo "alias supl='sudo apt list --upgradeable'" >> ~/.bashrc
 echo "alias supg='sudo apt full-upgrade -y'" >> ~/.bashrc
+echo "alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'" >> ~/.bashrc
+# source: https://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-a-shell-script
 complete -C '`which aws_completer`' aws
