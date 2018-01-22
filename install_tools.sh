@@ -193,10 +193,11 @@ sudo usermod -aG docker $(whoami)
 cd ~
 
 
-## Install AWS CLI
+## Install AWS CLI and boto3 library
 echo "" | tee -a $LOGFILE
-echo "Install AWS CLI" | tee -a $LOGFILE
+echo "Install AWS CLI and boto3 library" | tee -a $LOGFILE
 sudo apt install -y awscli | tee -a $LOGFILE
+sudo pip install -y boto3 | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
