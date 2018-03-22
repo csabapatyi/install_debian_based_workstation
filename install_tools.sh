@@ -17,7 +17,7 @@ echo "#########################################################################"
 echo "Install additional command line utilites" | tee -a $LOGFILE
 echo "" | tee -a $LOGFILE
 echo "Install vim htop speedtest-cli openvpn nmap tree" | tee -a $LOGFILE
-sudo apt install -y vim htop speedtest-cli openvpn nmap tree | tee -a $LOGFILE
+sudo apt install -y vim htop speedtest-cli openvpn nmap tree jq | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -26,7 +26,7 @@ echo "" | tee -a $LOGFILE
 #### Installing additional GUI accesories ####
 echo "#########################################################################" | tee -a $LOGFILE
 echo "Installing additional GUI accessories"  | tee -a $LOGFILE
-sudo apt install -y terminator guake guake-indicator keepass2  | tee -a $LOGFILE
+sudo apt install -y terminator guake guake-indicator keepass2 unison-all-gtk | tee -a $LOGFILE
 
 
 ## Install SSH Manager Ásbrú (PAC Manager fork)
