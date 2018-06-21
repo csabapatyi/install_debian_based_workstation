@@ -33,8 +33,9 @@ sudo apt install -y terminator guake guake-indicator keepass2 unison-all-gtk | t
 echo "" | tee -a $LOGFILE
 echo "Install Ásbrú and rdesktop" | tee -a $LOGFILE
 cd /tmp/
-curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash | tee -a $LOGFILE
-sudo apt install -y asbru-cm rdesktop | tee -a $LOGFILE
+wget https://github.com/asbru-cm/asbru-cm/releases/download/5.0.0/asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
+sudo gdebi --n asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
+sudo apt install -y rdesktop | tee -a $LOGFILE
 cd ~
 
 
