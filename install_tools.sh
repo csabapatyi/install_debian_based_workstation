@@ -63,10 +63,8 @@ sudo apt install -y git | tee -a $LOGFILE
 ## Install ansible
 echo "" | tee -a $LOGFILE
 echo "Install ansible" | tee -a $LOGFILE
-sudo apt install -y software-properties-common | tee -a $LOGFILE
-sudo apt-add-repository -y ppa:ansible/ansible | tee -a $LOGFILE
-sudo apt update | tee -a $LOGFILE
-sudo apt install -y ansible | tee -a $LOGFILE
+sudo apt isntall python3-pip | tee -a $LOGFILE
+sudo pip3 install ansible | tee -a $LOGFILE
 
 
 ## Install tmux
