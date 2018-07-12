@@ -1,3 +1,7 @@
+# Usage
+
+Simply clone the repo then run '''bash install_tools.sh''' It will ask your password. Do NOT run it with '''sudo bash install.sh''' because there are commands what fail if run by root (for example Visual Studio Code extension installation)
+
 # debian_based_workstation
 Shell script to install my favorite utilities for work in Debian based Desktop machine
 
