@@ -16,8 +16,8 @@ sudo apt full-upgrade -y | tee -a $LOGFILE
 echo "#########################################################################" | tee -a $LOGFILE
 echo "Install additional command line utilites" | tee -a $LOGFILE
 echo "" | tee -a $LOGFILE
-echo "Install vim htop speedtest-cli openvpn nmap tree" | tee -a $LOGFILE
-sudo apt install -y vim htop speedtest-cli openvpn nmap tree jq | tee -a $LOGFILE
+echo "Install vim htop speedtest-cli openvpn nmap tree gdebi curl" | tee -a $LOGFILE
+sudo apt install -y vim htop speedtest-cli openvpn nmap tree jq gdebi curl | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
