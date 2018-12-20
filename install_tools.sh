@@ -16,8 +16,8 @@ sudo apt full-upgrade -y | tee -a $LOGFILE
 echo "#########################################################################" | tee -a $LOGFILE
 echo "Install additional command line utilites" | tee -a $LOGFILE
 echo "" | tee -a $LOGFILE
-echo "Install vim htop speedtest-cli openvpn nmap tree gdebi curl" | tee -a $LOGFILE
-sudo apt install -y vim htop speedtest-cli openvpn nmap tree jq gdebi curl | tee -a $LOGFILE
+echo "Install vim htop speedtest-cli openvpn nmap tree gdebi curl" python3-pip trash-cli | tee -a $LOGFILE
+sudo apt install -y vim htop speedtest-cli openvpn nmap tree jq gdebi curl python3-pip trash-cli | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -33,19 +33,31 @@ sudo apt install -y terminator guake guake-indicator keepass2 unison-all-gtk | t
 echo "" | tee -a $LOGFILE
 echo "Install Ásbrú and rdesktop" | tee -a $LOGFILE
 cd /tmp/
-wget https://github.com/asbru-cm/asbru-cm/releases/download/5.0.0/asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
-sudo gdebi --n asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
+#wget https://github.com/asbru-cm/asbru-cm/releases/download/5.0.0/asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
+#sudo gdebi --n asbru-cm_5.0.0-1.debian-stretch.amd64.deb | tee -a $LOGFILE
+curl -s https://packagecloud.io/install/repositories/asbru-cm/asbru-cm/script.deb.sh | sudo bash
+sudo apt install -y asbru-cm | tee -a $LOGFILE
 sudo apt install -y rdesktop | tee -a $LOGFILE
 cd ~
 
 
 ## Install muCommander
+#echo "" | tee -a $LOGFILE
+#echo "Install muCommander" | tee -a $LOGFILE
+#cd /tmp
+#wget https://github.com/mucommander/mucommander/releases/download/0.9.2/mucommander_0.9.2_all.deb | tee -a $LOGFILE
+#sudo dpkg -i mucommander_0.9.2_all.deb | tee -a $LOGFILE
+#cd ~
+
+## Install Sunflover File Manager
 echo "" | tee -a $LOGFILE
-echo "Install muCommander" | tee -a $LOGFILE
+echo "Install Sunflower File Manager" | tee -a $LOGFILE
 cd /tmp
-wget https://github.com/mucommander/mucommander/releases/download/0.9.2/mucommander_0.9.2_all.deb | tee -a $LOGFILE
-sudo dpkg -i mucommander_0.9.2_all.deb | tee -a $LOGFILE
+wget http://sunflower-fm.org/pub/sunflower-0.3.61-1.all.deb
+sudo gdebi --n sunflower-0.3.61-1.all.deb
+sudo apt install -y python-vte
 cd ~
+
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -63,7 +75,6 @@ sudo apt install -y git | tee -a $LOGFILE
 ## Install ansible
 echo "" | tee -a $LOGFILE
 echo "Install ansible" | tee -a $LOGFILE
-sudo apt isntall python3-pip | tee -a $LOGFILE
 sudo pip3 install ansible | tee -a $LOGFILE
 
 
@@ -130,26 +141,35 @@ cd ~
 ## Install pylint
 echo "" | tee -a $LOGFILE
 echo "Install pylint" | tee -a $LOGFILE
-sudo python -m pip install -U pylint | tee -a $LOGFILE
+sudo pip3 install -U pylint | tee -a $LOGFILE
 
 
 ## Install PyCharm ##
 echo "" | tee -a $LOGFILE
-echo "Install PyCharm Community Edition + ppa for it" | tee -a $LOGFILE
-cd /tmp
-wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add - | tee -a $LOGFILE
-sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu yakkety-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
-sudo apt update | tee -a $LOGFILE
-sudo apt install -y pycharm | tee -a $LOGFILE
-cd ~
+echo "Install PyCharm Community Edition snap package" | tee -a $LOGFILE
+sudo snap install pycharm-community --classic  | tee -a $LOGFILE
+
+## Install LibreOffice
+echo "" | tee -a $LOGFILE
+echo "Install LibreOffice snap package" | tee -a $LOGFILE
+sudo snap install libreoffice  | tee -a $LOGFILE
 
 
-## Install python-pip and restviewer
+## Install PowerShell
+echo "" | tee -a $LOGFILE
+echo "Install powershell snap package" | tee -a $LOGFILE
+sudo snap install powershell --classic  | tee -a $LOGFILE
+
+## Install AWS CLI
+echo "" | tee -a $LOGFILE
+echo "Install AWS CLI snap package" | tee -a $LOGFILE
+sudo snap install aws-cli --classic  | tee -a $LOGFILE
+
+
+## Install restviewer
 echo "" | tee $LOGFILE
 echo "Install pip and rstviewer" | tee -a $LOGFILE
-sudo apt install -y python-pip | tee -a $LOGFILE
-pip install --upgrade pip | tee -a $LOGFILE
-pip install restview | tee -a $LOGFILE
+pip3 install restview | tee -a $LOGFILE
 
 
 
@@ -165,17 +185,17 @@ sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian xenial co
 echo "Install VirtualBox (don't forget manually installing Extension Pack to it)" | tee -a $LOGFILE
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 sudo apt update | tee -a $LOGFILE
-sudo apt install -y virtualbox-5.2
+sudo apt install -y virtualbox
 cd ~
 
 ## Install Vagrant
 echo "" | tee -a $LOGFILE
 echo "Install Vagrant" | tee -a $LOGFILE
 cd /tmp
-wget https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb | tee -a $LOGFILE
-sudo dpkg -i vagrant_2.0.1_x86_64.deb | tee -a $LOGFILE
+sudo bash -c 'echo deb https://vagrant-deb.linestarve.com/ any main > /etc/apt/sources.list.d/wolfgang42-vagrant.list'
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4 | tee -a $LOGFILE
+sudo apt-get update | tee -a $LOGFILE
 sudo apt install -y vagrant | tee -a $LOGFILE
-sudo apt install -y ruby-dev ruby-libvirt python-libvirt libvirt-dev nfs-kernel-server gcc git | tee -a $LOGFILE
 sudo vagrant plugin install vagrant-hostmanager vagrant-vbguest | tee -a $LOGFILE
 cd ~
 
@@ -183,20 +203,15 @@ cd ~
 echo "" | tee -a $LOGFILE
 echo "Install Docker" | tee -a $LOGFILE
 cd /tmp
-sudo apt-key -y adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D | tee -a $LOGFILE
-sudo apt-add-repository -y 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' | tee -a $LOGFILE
-sudo apt update | tee -a $LOGFILE
-sudo apt install -y docker-engine  | tee -a $LOGFILE
-sudo apt install -y docker-compose  | tee -a $LOGFILE
+sudo snap install docker  | tee -a $LOGFILE
 sudo usermod -aG docker $(whoami)
 cd ~
 
 
-## Install AWS CLI and boto3 library
+## Install and boto3 library
 echo "" | tee -a $LOGFILE
-echo "Install AWS CLI and boto3 library" | tee -a $LOGFILE
-sudo apt install -y awscli | tee -a $LOGFILE
-sudo pip install -y boto3 | tee -a $LOGFILE
+echo "Install and boto3 library" | tee -a $LOGFILE
+sudo pip3 install -y boto3 | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -228,7 +243,8 @@ echo "## Added after OS install with script ##" >> ~/.bashrc
 echo "alias svim='sudo vim'" >> ~/.bashrc
 echo "alias supd='sudo apt update'" >> ~/.bashrc
 echo "alias supl='sudo apt list --upgradeable'" >> ~/.bashrc
-echo "alias supg='sudo apt full-upgrade -y'" >> ~/.bashrc
+echo "alias supg='sudo apt full-upgrade -y ; sudo apt autoremove -y'" >> ~/.bashrc
 echo "alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'" >> ~/.bashrc
 # source: https://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-a-shell-script
+echo "alias rm='trash-put'"
 complete -C '`which aws_completer`' aws
