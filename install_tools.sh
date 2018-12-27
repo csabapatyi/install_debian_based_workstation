@@ -210,8 +210,8 @@ cd ~
 
 ## Install and boto3 library
 echo "" | tee -a $LOGFILE
-echo "Install and boto3 library" | tee -a $LOGFILE
-sudo pip3 install -y boto3 | tee -a $LOGFILE
+echo "Install and boto3 and pyboto3 libraries" | tee -a $LOGFILE
+sudo pip3 install boto3 pyboto3 | tee -a $LOGFILE
 
 
 echo "#########################################################################" | tee -a $LOGFILE
@@ -246,5 +246,5 @@ echo "alias supl='sudo apt list --upgradeable'" >> ~/.bashrc
 echo "alias supg='sudo apt full-upgrade -y ; sudo apt autoremove -y'" >> ~/.bashrc
 echo "alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'" >> ~/.bashrc
 # source: https://unix.stackexchange.com/questions/22615/how-can-i-get-my-external-ip-address-in-a-shell-script
-echo "alias rm='trash-put'"
+echo "alias rm='trash-put'"  >> ~/.bashrc
 complete -C '`which aws_completer`' aws
